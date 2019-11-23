@@ -9,7 +9,7 @@
   padding-top: 20px !important;
 }
 .nav-item{
-  margin-left: 40px;
+  margin-left: 30px;
   margin-bottom:10px;
 }
 .nav-link{
@@ -37,11 +37,11 @@
   outline:none !important;
   padding: initial !important;
 }
-.active-home{
+/* .active-home{
   border-bottom: 2px solid #fff;
-}
+} */
 .nav-link:hover{
-  border-bottom: 2px solid #fff;
+  color:#6900d1;
 }
 .banner{
   margin-top: 8%;

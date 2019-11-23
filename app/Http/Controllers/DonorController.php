@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 use App\Donation;
+use App\User;
 use Illuminate\Http\Request;
 use Validator;
 class DonorController extends Controller
 {
+
+  public function __construct(){
+    $this->middleware('auth');
+  }
   public function donate(){
+
     return view('gms.donate');
   }
 

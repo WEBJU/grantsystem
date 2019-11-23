@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+  // protected $redirectAfterLogout = '/login';
+    public function __construct(){
+      // $this->middleware('auth');
+      $this->middleware('guest', ['except' => 'logout']);
+
+
+    }
     public function login(){
       return view('gms.login');
     }
@@ -26,24 +33,9 @@ class UserController extends Controller
       ]);
 
       $user=User::create(request(['name','email','phone_number','account_type','username','password']));
-      auth()->login($user);
-      return redirect('/');
+      return redirect('/login')->with('success','Your account has been created..Login now!!');
     }
-    // public function store(Request $request){
-    //    $this->validate($request,[
-    //     'name'=>'required',
-    //     'phone'=>'required',
-    //     'account_type'=>'required',
-    //     'email'=>'required',
-    //     'username'=>'required',
-    //     'password'=>'required'
-    //   ]);
-    //   $input=$request->all();
-    //   $input['password']=bcrypt($input['password']);
-    //   $user=User::create($input);
-    //
-    //   return redirect('/login')->with('success','Account created successfully..Login to continue');
-    // }
+
 
     public function accountLogin(){
       if (auth()->attempt(request(['username','password']))==false) {
@@ -52,12 +44,20 @@ class UserController extends Controller
         ]);
         }
         else {
+            $user_id=auth()->user()->id;
+            $user=User::find($user_id);
+            $user->is_logged_in=1;
+            $user->save();
             return redirect()->to('/');
         }
 
 
     }
     public function destroy(){
+      $user_id=auth()->user()->id;
+      $user=User::find($user_id);
+      $user->is_logged_in=0;
+      $user->save();
       auth()->logout();
       return redirect('/login');
     }
