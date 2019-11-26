@@ -9,7 +9,7 @@ class UserController extends Controller
   // protected $redirectAfterLogout = '/login';
     public function __construct(){
       // $this->middleware('auth');
-      $this->middleware('guest', ['except' => 'logout']);
+      // $this->middleware('guest', ['except' => 'logout']);
 
 
     }

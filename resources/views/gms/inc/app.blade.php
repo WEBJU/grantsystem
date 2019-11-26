@@ -16,7 +16,7 @@
         <section class="header">
           <div class="container">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="#">Grant Management System</a>
+                <a class="navbar-brand" href="#">GMS</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <i class="fa fa-bars"></i>
                 </button>
@@ -32,10 +32,10 @@
                           <a class="nav-link c-btn" href="/donate">DONATE</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link c-btn" href="/donate">COLLABORATE ON GRANTS</a>
+                        <a class="nav-link c-btn" href="/collaborate">COLLABORATE</a>
                       </li>
                       <li class="nav-item ">
-                        <a class="nav-link c-btn" href="/donate">MY DONATIONS</a>
+                        <a class="nav-link c-btn" href="/my_donations">MY DONATIONS</a>
                       </li>
 
                     @elseif(auth()->user()->account_type=='NGO')
@@ -43,14 +43,14 @@
                          <a class="nav-link a-btn" href="/apply_donation">GET DONATION</a>
                        </li>
                         <li class="nav-item">
-                          <a class="nav-link a-btn" href="/apply_donation">DONATION STATUS</a>
+                          <a class="nav-link a-btn" href="/myapplications">DONATION HISTORY</a>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link a-btn" href="/apply_donation">DONATION HISTORY </a>
-                        </li>
+                        {{-- <li class="nav-item">
+                          <a class="nav-link a-btn" href="/application_history">DONATION HISTORY </a>
+                        </li> --}}
                       @endif
                       <li class="nav-item">
-                        <a class="nav-link" href="#"><p style="">Welcome,{{auth()->user()->username}}</p></a>
+                        <a class="nav-link" href="#"><p style="">{{auth()->user()->username}}</p></a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="/logout" class="btn btn-warning btn-outline">LOGOUT</a>

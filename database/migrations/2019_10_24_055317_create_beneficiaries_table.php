@@ -15,11 +15,14 @@ class CreateBeneficiariesTable extends Migration
     {
         Schema::create('beneficiaries', function (Blueprint $table) {
             $table->bigIncrements('id');
+              $table->unsignedBigInteger('user_id');
               $table->string('organization_name');
               $table->string('category');
-              $table->string('location');
+              $table->string('amount');
               $table->string('population_benefitting');
-            $table->timestamps();
+              $table->int('status')->default(0);
+              $table->foreign('user_id')->references('id')->on('users');
+              $table->timestamps();
         });
     }
 

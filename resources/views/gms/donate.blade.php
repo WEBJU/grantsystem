@@ -11,7 +11,7 @@
                 <div class="row">
 
                     <div class="col-md-4">
-                        <img src="img/donation.jpeg" class="img-fluid" style="height:100%;"alt="">
+                        <img src="img/donation.jpeg" class="img-fluid" style="height:85%;"alt="">
                     </div>
                     <div class="col-md-8">
                       <form action="/donation" method="post">

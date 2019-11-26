@@ -40,4 +40,14 @@ class User extends Authenticatable
    {
        $this->attributes['password'] = bcrypt($password);
    }
+   public function userDonations(){
+      return $this->HasMany('App\Donation');
+   }
+   public function userApplications(){
+     return $this->HasMany('App\Beneficiary');
+   }
+
+   public function payment(){
+     return $this->HasMany('App\Payment');
+   }
 }

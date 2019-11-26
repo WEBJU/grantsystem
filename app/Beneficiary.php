@@ -10,5 +10,8 @@ class Beneficiary extends Model
       'organization_name', 'category', 'location','population_benefitting',
   ];
 
-  
+  public function user(){
+    return $this->belongsTo('App\User');
+  }
+
 }

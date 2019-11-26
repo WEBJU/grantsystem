@@ -25,8 +25,8 @@
                           <input type="text" class="form-control w-75" name="category" aria-describedby="emailHelp" placeholder="Your NGO category">
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Your Location</label>
-                          <input type="text" class="form-control w-75" name="location" aria-describedby="emailHelp" placeholder="Your location">
+                          <label for="exampleInputEmail1">Amount You wish to receive</label>
+                          <input type="text" class="form-control w-75" name="amount" aria-describedby="emailHelp" placeholder="Amount">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">How many people are benefitting from the donation</label>

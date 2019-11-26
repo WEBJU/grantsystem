@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 use App\Donation;
 use App\User;
-use Illuminate\Http\Request;
 use Validator;
+use Auth;
+use Illuminate\Http\Request;
 class DonorController extends Controller
 {
 
@@ -32,10 +33,36 @@ class DonorController extends Controller
      if ($validator->fails()) {
        return back()->with(['error'=>$validator->errors()]);
      }
-     $input=$request->all();
+     $donation=new Donation();
+     $user_id=auth()->user()->id;
+     $donation->user_id=$user_id;
+     $donation->organization_name=request('organization_name');
+     $donation->address=request('address');
+     $donation->country=request('country');
+     $donation->payment_mode=request('payment_mode');
+     $donation->donation_type=request('donation_type');
+     $donation->description=request('description');
+     $donation->save();
+     // $input=$request->all();
 
-     $donation=Donation::create($input);
+     // $input['user_id']=$user_id;
+     // $donation=Donation::create($input);
      return redirect('/payment_mode')->with('success','Complete your donation');
 
 }
+public function payment(){
+  return view('gms.payment');
+}
+
+public function donation_history(){
+  $user_id=auth()->user()->id;
+  $donor=User::find($user_id);
+  return view('gms.donation_history')->with('userDonations',$donor->userDonations);
+
+}
+public function collaborate(){
+  $donors=User::where(['account_type'=>'DONOR'])->get();
+  return view('gms.collaborate')->with('donors',$donors);
+}
+
 }
