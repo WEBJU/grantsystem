@@ -12,4 +12,8 @@ class Donation extends Model
     return $this->belongsTo('App\User');
   }
 
+  public function payments(){
+    return $this->HasMany('App\Payment');
+  }
+
 }

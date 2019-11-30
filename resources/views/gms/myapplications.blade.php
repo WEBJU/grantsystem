@@ -14,9 +14,9 @@
       <li class="breadcrumb-item">
         <a href="index.html">Home</a>
       </li>
-      <li class="breadcrumb-item active">Case History</li>
+      <li class="breadcrumb-item active">Application History</li>
     </ol>
-<table class="table">
+<table class="table table-striped">
   <div class="text-right">
     <a href="/apply_donation" class="btn btn-primary m-3">Apply new!!</a>
   </div>
@@ -27,7 +27,6 @@
       <th scope="col">Amount</th>
       <th scope="col">Population Benefitting</th>
       <th scope="col">Status</th>
-      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -37,12 +36,16 @@
       <td>{{ $history->organization_name }}</td>
       <td>{{ $history->category }}</td>
       <td style="color:green">Ksh.{{ $history->amount }}</td>
-      <td>{{ $history->population_benefitting }}</td>
-      <td>{{ $history->status }}</td>
-      <td colspan="2">
-          <a href="#" class="btn btn-primary">Edit</a>
-          <a href="#" class="btn btn-danger">Delete</a>
-      </td>
+      <td>{{ $history->population_benefitting }} &nbsp;People</td>
+      @if ($history->status==0)
+        <td class="text-info">Pending</td>
+      @elseif($history->status==1)
+        <td class="text-success">Approved</td>
+      @else
+        <td class="text-warning">Rejected</td>
+      @endif
+      {{-- <td>{{ $history->status }}</td> --}}
+
     </tr>
   @endforeach
   @else

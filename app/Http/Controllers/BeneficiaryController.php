@@ -33,7 +33,7 @@ class BeneficiaryController extends Controller
   public function myapplications(){
     $user_id=auth()->user()->id;
     $donor=User::find($user_id);
-    return view('gms.myapplications')->with('userDonations',$donor->userDonations);
+    return view('gms.myapplications')->with('userApplications',$donor->userApplications);
 
   }
 }

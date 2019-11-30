@@ -16,10 +16,12 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->double('amount');
+            $table->unsignedBigInteger('donation_id')->default(1);
             $table->date('payment_date');
-            $table->double('payment_option');
-            $table->foreign('user_id')->references('id')->on('users');;
+            $table->string('payment_option');
+            $table->string('code');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('donation_id')->references('id')->on('donations');;
             $table->timestamps();
         });
     }

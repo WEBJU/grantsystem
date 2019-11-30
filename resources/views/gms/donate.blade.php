@@ -33,6 +33,10 @@
                           <input type="text" class="form-control w-75" name="payment_mode" aria-describedby="emailHelp" placeholder="Preferred payment mode">
                         </div>
                         <div class="form-group">
+                          <label for="exampleInputEmail1">Payment Amount</label>
+                          <input type="text" class="form-control w-75" name="amount" aria-describedby="emailHelp" placeholder="Enter Amount">
+                        </div>
+                        <div class="form-group">
                           <label for="exampleInputEmail1">Type of Donation</label>
                           <input type="text" class="form-control w-75" name="donation_type" aria-describedby="emailHelp" placeholder="Select your donation">
                         </div>

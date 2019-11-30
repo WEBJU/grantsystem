@@ -20,6 +20,7 @@ class CreateDonationsTable extends Migration
             $table->string('address');
             $table->string('country');
             $table->string('payment_mode');
+            $table->string('amount');
             $table->string('donation_type');
             $table->string('description');
             $table->foreign('user_id')->references('id')->on('users');

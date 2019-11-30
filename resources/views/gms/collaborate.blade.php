@@ -11,42 +11,33 @@
 
 
                     <div class="col-md-8">
-                      <form action="/donation" method="post">
+                      <form action="/collaborate_now" method="post">
                         @csrf
                         <div class="form-group">
-                          <label for="">Select Donor Name</label>
-                          <select name="account_type" class="form-control w-75" >
-                            @foreach ($donors as $donor)
-                              <option>{{$donor->name}}</option>
-                              @endforeach
+                          <label for="">Type of Grant</label>
+                          <select name="grant_type" class="form-control w-75" >
+                              <option>continuation</option>
+                              <option>formula</option>
+                              <option>competitive</option>
                           </select>
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Address</label>
-                          <input type="text" class="form-control w-75" name="address" aria-describedby="emailHelp" placeholder="Your address">
+                          <label for="exampleInputEmail1">Category</label>
+                          <input type="text" class="form-control w-75" name="category" aria-describedby="emailHelp" placeholder="Category">
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Your Country</label>
-                          <input type="text" class="form-control w-75" name="country" aria-describedby="emailHelp" placeholder="Your country">
+                          <label for="exampleInputEmail1">Purpose</label>
+                          <input type="text" class="form-control w-75" name="purpose" aria-describedby="emailHelp" placeholder="Purpose">
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Payment Mode</label>
-                          <input type="text" class="form-control w-75" name="payment_mode" aria-describedby="emailHelp" placeholder="Preferred payment mode">
+                          <label for="exampleInputEmail1">Amount</label>
+                          <input type="text" class="form-control w-75" name="amount" aria-describedby="emailHelp" placeholder="Amount">
                         </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Type of Donation</label>
-                          <input type="text" class="form-control w-75" name="donation_type" aria-describedby="emailHelp" placeholder="Select your donation">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Any other detail</label>
-                          <textarea type="text" class="form-control w-75" name="description" aria-describedby="emailHelp" placeholder="Any other description"></textarea>
-                        </div>
-
-                        <button type="submit" class="c-btn w-75">Proceed to Payment</button>
+                        <button type="submit" class="c-btn w-75">Collaborate Now</button>
                       </form>
                     </div>
                     <div class="col-md-4">
-                        <img src="img/donation.jpeg" class="img-fluid" style="height:85%;"alt="">
+                        <img src="img/donation.jpeg" class="img-fluid" style="height:60%;"alt="">
                     </div>
                 </div>
             </div>

@@ -7,13 +7,14 @@
             <div class="container ">
                 <h2 class="title">Describe briefly how you are going to use the donation</h2>
                 <p class="subtitle">Fill in the application form below to complete</p>
-                @include('inc.messages')
+
                 <div class="row">
 
                     <div class="col-md-4">
                         <img src="img/donation.jpeg" class="img-fluid" style="height:60%;"alt="">
                     </div>
                     <div class="col-md-8">
+                        @include('inc.messages')
                       <form method="post" action="/claim_donation">
                         @csrf
                         <div class="form-group">

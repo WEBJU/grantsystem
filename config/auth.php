@@ -1,3 +1,4 @@
+
 <?php
 
 return [
@@ -40,12 +41,19 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
             'hash' => false,
         ],
+        // 'client'=>[
+        //   'driver' => 'token',
+        //   'provider' => 'clients',
+        // ],
     ],
 
     /*
@@ -70,7 +78,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
+        // 'clients' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Clients::class,
+        // ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

@@ -20,7 +20,7 @@ class CreateBeneficiariesTable extends Migration
               $table->string('category');
               $table->string('amount');
               $table->string('population_benefitting');
-              $table->int('status')->default(0);
+              $table->integer('status')->default(0);
               $table->foreign('user_id')->references('id')->on('users');
               $table->timestamps();
         });

@@ -16,16 +16,14 @@
                     <div class="col-md-8">
                       <form action="/save_payment" method="post">
                         @csrf
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Payment Amount</label>
-                          <input type="text" class="form-control w-75" name="amount" aria-describedby="emailHelp" placeholder="Enter Amount">
-                        </div>
+                        {{-- <input type="hidden" name="donation_id" value="{{$donation_id}}"> --}}
+
                         <div class="form-group">
                           <label for="exampleInputEmail1">Payment Date</label>
                           <input type="date" class="form-control w-75" name="date" aria-describedby="emailHelp" >
                         </div>
                         <div class="form-group">
-                        <label for="exampleInputEmail1">Payment Options</label>
+                        <label for="exampleInputEmail1">Payment Option</label>
                         <select class="form-control w-75" name="option">
                           <option>Bank</option>
                           <option>MPESA</option>
@@ -34,7 +32,7 @@
                       </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Transaction Code</label>
-                          <input type="text" class="form-control w-75" name="code" aria-describedby="emailHelp" placeholder="Your address">
+                          <input type="text" class="form-control w-75" name="code" aria-describedby="emailHelp" placeholder="Tranaction Code">
                         </div>
                         <button type="submit" class="c-btn w-75">Pay Now</button>
                       </form>
