@@ -22,6 +22,7 @@
   </div>
   <thead class="thead-dark">
     <tr>
+      <th>#</th>
       <th scope="col">Organization Name</th>
       <th scope="col">Category</th>
       <th scope="col">Amount</th>
@@ -33,6 +34,7 @@
     @if (count($userApplications)>0)
     @foreach($userApplications as $history)
     <tr class="p-4">
+      <td>{{ $history->id }}</td>
       <td>{{ $history->organization_name }}</td>
       <td>{{ $history->category }}</td>
       <td style="color:green">Ksh.{{ $history->amount }}</td>

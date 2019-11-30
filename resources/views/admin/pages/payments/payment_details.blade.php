@@ -28,12 +28,13 @@
         <table  class="table table-bordered table-striped">
           <thead>
           <tr>
+            <td>#</td>
             <th>Organization Name</th>
             <th>Payment Date</th>
             <th>Donation Type</th>
             <th>Payment  Mode</th>
             {{-- <th>Transaction Code </th> --}}
-            <th colspan="2">Action</th>
+            <th colspan="">Action</th>
           </tr>
 
           </thead>
@@ -42,12 +43,12 @@
             @if(count($payments)>0)
             @foreach ($payments as $payment)
           <tr>
+            <td>{{$payment->id}}</td>
             <td>{{$payment->donation->organization_name}}</td>
             <td>{{$payment->payment_date}}</td>
             <td>{{$payment->donation->donation_type}}</td>
             <td>{{$payment->payment_option}}</td>
             {{-- <td>{{$payment->donation->}}</td> --}}
-            <td><a href="#" class="btn btn-primary dissabled">Edit</a></td>
             <td>
               <form  method="post">
                 @csrf

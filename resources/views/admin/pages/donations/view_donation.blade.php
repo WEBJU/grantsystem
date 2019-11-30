@@ -28,12 +28,13 @@
         <table  class="table table-bordered table-striped">
           <thead>
           <tr>
+            <th>#</th>
             <th>Organization Name</th>
             <th>Address</th>
             <th>Country</th>
             <th>Amount Donated</th>
             <th>Date Paid</th>
-            <th colspan="3">Action</th>
+            <th colspan="1">Action</th>
           </tr>
 
           </thead>
@@ -41,16 +42,12 @@
             @if(count($donations)>0)
               @foreach ($donations as $donation)
           <tr>
+            <td>{{$donation->id}}</td>
             <td>{{$donation->organization_name}}</td>
             <td>{{$donation->address}}</td>
             <td>{{$donation->country}}</td>
             <td style="color:green">Ksh.{{$donation->amount}}</td>
             <td>{{$donation->created_at}}</td>
-
-            <td>
-              <a href="#" class="btn btn-primary disabled">Edit</a>
-            </td>
-
               <td>
                 <form action="" method="post">
                   @csrf

@@ -31,6 +31,7 @@
         <table  class="table table-bordered table-striped">
           <thead>
           <tr>
+            <th>#</th>
             <th>Organization Name</th>
             <th>Amount Applied</th>
             <th>Status</th>
@@ -44,7 +45,7 @@
                 {{-- loop through the subjects --}}
               @foreach ($applications as $application)
           <tr>
-
+            <td>{{$application->id}}</td>
             <td>{{$application->organization_name}}</td>
             <td class="text-success">Ksh.{{$application->amount}}</td>
             @if ($application->status==0)

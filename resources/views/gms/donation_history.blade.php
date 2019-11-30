@@ -22,6 +22,7 @@
   </div>
   <thead class="thead-dark">
     <tr>
+      <th>#</th>
       <th scope="col">Organization Name</th>
       <th scope="col">Donation Type</th>
       <th scope="col">Payment Mode</th>
@@ -33,6 +34,7 @@
     @if (count($userDonations)>0)
     @foreach($userDonations as $history)
     <tr class="p-4">
+      <td>{{ $history->id }}</td>
       <td>{{ $history->organization_name }}</td>
       <td>{{ $history->donation_type }}</td>
       <td>{{ $history->payment_mode }}</td>

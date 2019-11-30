@@ -28,6 +28,7 @@
         <table  class="table table-bordered table-striped">
           <thead>
           <tr>
+            <th>#</th>
             {{-- <th>Representative Name</th> --}}
             <th>Organizatio Name</th>
             <th>Category</th>
@@ -41,10 +42,11 @@
           @foreach($beneficiaries as $beneficiary)
               <tr>
                   {{-- <td>{{$beneficiary->user->name}}</td> --}}
+                  <td>{{$beneficiary->id}}</td>
                   <td>{{$beneficiary->organization_name}}</td>
                   <td>{{$beneficiary->category}}</td>
                   <td>{{$beneficiary->population_benefitting}} &nbsp;People</td>
-                  
+
                   <td>
                     <form method="post" class="delete_form">
                       {{csrf_field()}}

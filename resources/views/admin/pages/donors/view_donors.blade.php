@@ -43,6 +43,7 @@
 
                 <thead>
                 <tr>
+                    <th> #</th>
                     <th>Name</th>
                     <th>Phone Number</th>
                     <th>Username</th>
@@ -55,6 +56,7 @@
                 <tbody id="studentsTable1">
                 @foreach($donors as $donor)
                     <tr class="Donor {{$donor->id}} table-hover">
+                        <td>{{$donor->id}}</td>
                         <td>{{$donor->name}}</td>
                         <td>{{$donor->phone_number}}</td>
                         <td>{{$donor->username}}</td>
