@@ -1,4 +1,3 @@
-
 @extends('gms.inc.app')
 @section('content')
   <!-- Page Content -->

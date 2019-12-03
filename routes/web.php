@@ -70,3 +70,5 @@ Route::get('/viewApplications','AdminController@viewApplications');
 Route::post('/acceptApplication/{id}','AdminController@accept_application');
 Route::post('/rejectApplication/{id}','AdminController@reject_application');
 Route::get('/payment','DonorController@payment');
+
+Route::get('/donor_matches','DonorController@matches');

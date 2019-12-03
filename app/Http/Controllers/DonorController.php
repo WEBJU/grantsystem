@@ -120,13 +120,12 @@ public function colloborate_now(Request $request){
    $collobarate=new Collaborate();
    $user_id=auth()->user()->id;
    // $collobarate->user_id=$user_id;
-   $collobarate->grant_type=request('grant_type');
+   $collobarate->grant_type=request('donation_type');
    $collobarate->category=request('category');
-   $collobarate->purpose=request('purpose');
    $collobarate->amount=request('amount');
    $collobarate->save();
 
-      return back()->with('success','New Colloboration added Successfully.You can now invite others!!');
+      return redirect('/donor_matches')->with('success','New Colloboration added Successfully.You can now invite others!!');
 
    }
 
@@ -139,5 +138,8 @@ public function colloborate_now(Request $request){
 
    public function view_donors(){
 
+   }
+   public function matches(){
+      return view('gms.donor_matches');
    }
 }
