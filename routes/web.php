@@ -10,10 +10,30 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Http\Request;
+
 Auth::routes();
 Route::get('/', function () {
     return view('gms.index');
 });
+Route::get('/view_donors','DonorController@view_donors');
+Route::post ( '/save_payment', function (Request $request) {
+    \Stripe\Stripe::setApiKey ( 'sk_test_TifqxRspRHbGbEd0OvzftWXj00zUokDFrb' );
+    try {
+        \Stripe\Charge::create ( array (
+                "amount" => 300 * 100,
+                "currency" => "usd",
+                "source" => $request->input( 'stripeToken' ), // obtained with Stripe.js
+                "description" => "Test payment."
+        ) );
+        $amount=0;
+        Session::flash ( 'success-message', 'Payment done successfully !' );
+        return view('gms.payment')->with('amount',$amount);
+    } catch ( \Exception $e ) {
+        Session::flash ( 'fail-message', "Error! Please Try again." );
+          return view('gms.payment')->with('amount',$amount);
+    }
+} );
 Route::get('/admin','AdminController@show');
 Route::post('admin_account_login','AdminController@account_login');
 // Route::get('/dashboard',function () {
@@ -39,7 +59,7 @@ Route::post('/create_account','UserController@store');
 
 Route::post('/accountAccess','UserController@accountLogin');
 Route::get('/payment_mode','DonorController@payment');
-Route::post('/save_payment','DonorController@save_payment');
+// Route::post('/save_payment','DonorController@save_payment');
 // Route::get('/payment_mode','DonorController@payment');
 Route::get('/viewDonors','AdminController@viewDonors');
 Route::get('/viewBeneficiaries','AdminController@viewBeneficiaries');
@@ -49,3 +69,4 @@ Route::get('/viewApplications','AdminController@viewApplications');
 
 Route::post('/acceptApplication/{id}','AdminController@accept_application');
 Route::post('/rejectApplication/{id}','AdminController@reject_application');
+Route::get('/payment','DonorController@payment');

@@ -54,7 +54,7 @@ class AdminController extends Controller
     $application->status=1;
     $application->save();
 
-    return back()->with('success','Application accepted Successfully!!');
+    return back()->with('success','Application approved Successfully!!');
 
   }
   public function reject_application(Request $request,$id){
@@ -63,7 +63,6 @@ class AdminController extends Controller
 
     $application->status=2;
     $application->save();
-
     return back()->with('success','Application rejected Successfully!!');
 
   }
@@ -72,5 +71,14 @@ class AdminController extends Controller
   //   $student = Student::find($id);
   //       $student->delete();
   //       return redirect()->route('student.index')->with('success', 'Data Deleted');
+  // }
+  // public function delete_beneficiary(Request $request,$id){
+    // $application_id=
+    // $application=Beneficiary::find($id);
+
+    // $application->delete();
+    //
+    // return back()->with('success','Application deleted Successfully!!');
+
   // }
 }

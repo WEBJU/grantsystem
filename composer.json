@@ -12,7 +12,9 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
-        "srmklive/paypal": "^1.6"
+        "paypal/rest-api-sdk-php": "^1.14",
+        "srmklive/paypal": "^1.6",
+        "stripe/stripe-php": "^7.14"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

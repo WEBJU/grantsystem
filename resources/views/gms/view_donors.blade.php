@@ -14,22 +14,22 @@
                       <form action="/collaborate_now" method="post">
                         @csrf
                         <div class="form-group">
-                          <label for="">Type of Donation</label>
-                          <select name="donation_type" class="form-control w-75">
-                              <option>Charitable Bequests</option>
-                              <option>Gifts of Life Insurance</option>
-                              <option>Charitable Annuities</option>
-                              <option>Charitable Remainder Trusts</option>
-                              <option>Endowment Funds</option>
+                          <label for="">Select Partner Organization</label>
+                          <select name="grant_type" class="form-control w-75" >
+                              {{-- <option>continuation</option> --}}
+                              @foreach ($donor_organization as $partner)
+                                  <option>{{$partner->organization_name}}</option>
+                              @endforeach
                           </select>
                         </div>
-                        {{-- <div class="form-group">
+
+                        <div class="form-group">
                           <label for="exampleInputEmail1">Category</label>
                           <input type="text" class="form-control w-75" name="category" aria-describedby="emailHelp" placeholder="Category">
-                        </div> --}}
+                        </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Purpose</label>
-                          <input type="text" class="form-control w-75" name="purpose" aria-describedby="emailHelp" placeholder="Tell us the purpose of your donation to get a match..">
+                          <input type="text" class="form-control w-75" name="purpose" aria-describedby="emailHelp" placeholder="Purpose">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Amount</label>

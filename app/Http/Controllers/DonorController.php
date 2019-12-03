@@ -5,6 +5,7 @@ use App\Donation;
 use App\User;
 use Validator;
 use Auth;
+use App\Beneficiary;
 use App\Collaborate;
 use App\Payment;
 use Illuminate\Http\Request;
@@ -15,13 +16,14 @@ class DonorController extends Controller
     $this->middleware('auth');
   }
   public function donate(){
-
-    return view('gms.donate');
+    $beneficiary=Beneficiary::all();
+    return view('gms.donate')->with('beneficiary',$beneficiary);
   }
 
   public function apply_donation(){
     return view('gms.apply_donation');
   }
+
   public function donation(Request $request){
      $validator=Validator::make($request->all(),[
        'organization_name'=>'required',
@@ -29,12 +31,13 @@ class DonorController extends Controller
        'country'=>'required',
        'payment_mode'=>'required',
        'donation_type'=>'required',
-       'description'=>'required',
+       'receiver'=>'required',
+       'amount'=>'required'
 
      ]);
-     if ($validator->fails()) {
-       return back()->with(['error'=>$validator->errors()]);
-     }
+     // if ($validator->fails()) {
+     //   return back()->with(['error'=>$validator->errors()]);
+     // }
      $donation=new Donation();
      $user_id=auth()->user()->id;
      $donation->user_id=$user_id;
@@ -44,15 +47,18 @@ class DonorController extends Controller
      $donation->payment_mode=request('payment_mode');
      $donation->amount=request('amount');
      $donation->donation_type=request('donation_type');
-     $donation->description=request('description');
+      $donation->purpose=request('purpose');
+     $donation->receiver_orgnization=request('receiver');
+     $donation->save();
+     $amount=request('amount');
 
-     if ( $donation->save()) {
+     // if ( $donation->save()) {
       // $donations=auth()->user()->userDonations;
       // foreach ($donations as $donation) {
-        $donation_id=Donation::find($donation->id);
-        return redirect('/payment_mode')->with('success','Complete your donation')->with('donation_id',$donation_id);
+        // $donation_id=Donation::find($donation->id);
+        return view('gms.payment')->with('success','Complete your donation')->with('amount',$amount);
       // }
-     }
+     // }
 
      // $input=$request->all();
 
@@ -72,8 +78,8 @@ public function donation_history(){
 
 }
 public function collaborate(){
-
-  return view('gms.collaborate');
+  $donor_organization=Donation::all();
+  return view('gms.collaborate')->with('donor_organization',$donor_organization);
 }
 
 public function save_payment(Request $request){
@@ -103,8 +109,7 @@ public function save_payment(Request $request){
 }
 public function colloborate_now(Request $request){
    $validator=Validator::make($request->all(),[
-     'grant_type'=>'required',
-     'category'=>'required',
+     'donation_type'=>'required',
      'purpose'=>'required',
      'amount'=>'required',
 
@@ -122,6 +127,17 @@ public function colloborate_now(Request $request){
    $collobarate->save();
 
       return back()->with('success','New Colloboration added Successfully.You can now invite others!!');
+
+   }
+
+
+   // public function payment(){
+   //
+   //   return view('gms.payment');
+   //
+   //
+
+   public function view_donors(){
 
    }
 }

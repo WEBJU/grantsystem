@@ -18,7 +18,7 @@
     </ol>
 <table class="table table-striped">
   <div class="text-right">
-    <a href="/apply_donation" class="btn btn-primary m-3">Donate new!!</a>
+    <a href="/donate" class="btn btn-primary m-3">Donate new!!</a>
   </div>
   <thead class="thead-dark">
     <tr>
@@ -26,7 +26,7 @@
       <th scope="col">Organization Name</th>
       <th scope="col">Donation Type</th>
       <th scope="col">Payment Mode</th>
-      <th scope="col">Description</th>
+      <th scope="col">Receiver Organization</th>
       <th scope="col">Amount</th>
     </tr>
   </thead>
@@ -38,8 +38,8 @@
       <td>{{ $history->organization_name }}</td>
       <td>{{ $history->donation_type }}</td>
       <td>{{ $history->payment_mode }}</td>
-      <td>{{ $history->description}}</td>
-      <td style="color:green">Ksh.{{ 20000 }}</td>
+      <td>{{ $history->receiver_orgnization}}</td>
+      <td style="color:green">Ksh.{{ $history->amount}}</td>
 
     </tr>
   @endforeach
@@ -47,7 +47,7 @@
     <tr>
       <td style="margin:20px;"><p class="center">You are yet to donate..donate now!!</p>
           <br>
-          <a type="button" class="btn btn-primary" href="/apply_donation         ">Donate now</a>
+          <a type="button" class="btn btn-primary" href="/donate         ">Donate now</a>
       </td>
     </tr>
   @endif

@@ -5,7 +5,7 @@
                     <h1>Lets make the change</h1>
                     <p>Grant Management System helps you to make meaning for others <br>By donating the to other and making an impact</p>
                     <a href="#">JOIN NOW</a>
-                    <a href="#" class="btn-learn">LEARN MORE</a>
+                    <a href="/view_donors" class="btn-learn">VIEW DONORS</a>
                 </div>
                 <div class="col-md-6">
                   <img src="img/bg.jpg" class="img-fluid">

@@ -22,7 +22,8 @@ class CreateDonationsTable extends Migration
             $table->string('payment_mode');
             $table->string('amount');
             $table->string('donation_type');
-            $table->string('description');
+            $table->string('receiver_orgnization');
+            $table->string('purpose');
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();

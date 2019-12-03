@@ -11,6 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
   </head>
   <body>
         <section class="header">
@@ -49,6 +50,18 @@
                           <a class="nav-link a-btn" href="/application_history">DONATION HISTORY </a>
                         </li> --}}
                       @endif
+                      {{-- <li class="nav-item" style="padding-top:0px;">
+                      <div class="dropdown">
+                        <button class="c-btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Dropdown
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                          <button class="dropdown-item" type="button">Action</button>
+                          <button class="dropdown-item" type="button">Another action</button>
+                          <button class="dropdown-item" type="button">Something else here</button>
+                        </div>
+                      </div>
+                      </li> --}}
                       <li class="nav-item">
                         <a class="nav-link" href="#"><p style="">{{auth()->user()->username}}</p></a>
                       </li>
@@ -74,6 +87,8 @@
 
             </nav>
             @yield('content')
+
+
 
             <section class="footer text-center">
                 <div class="container">

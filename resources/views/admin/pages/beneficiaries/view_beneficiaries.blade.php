@@ -48,11 +48,16 @@
                   <td>{{$beneficiary->population_benefitting}} &nbsp;People</td>
 
                   <td>
-                    <form method="post" class="delete_form">
+                    <form  method="POST">
+                      @csrf
+                      <input type="hidden"  name="id" value="{{$beneficiary->id}}">
+                      <button class="btn btn-danger mr-1">Delete</button>
+                    </form>
+                    {{-- <form method="post" class="delete_form">
                       {{csrf_field()}}
                       <input type="hidden" name="_method" value="DELETE" />
                       <button type="submit" class="btn btn-danger">Delete</button>
-                     </form>
+                     </form> --}}
                   </td>
               </tr>
           @endforeach

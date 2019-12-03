@@ -15,10 +15,14 @@ class CreateCollaboratesTable extends Migration
     {
         Schema::create('collaborates', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('grant_type');
-            $table->string('category');
+            // $table->unsignedBigInteger('user_id');
+            $table->string('donation_type');
             $table->string('purpose');
-            $table->double('amount');
+             $table->unsignedBigInteger('user_id');
+            $table->string('organization1_name')->nullable();
+            $table->string('organization2_name')->nullable();
+            $table->double('total_amount')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
